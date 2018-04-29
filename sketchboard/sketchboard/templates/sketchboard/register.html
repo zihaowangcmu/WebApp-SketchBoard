@@ -1,0 +1,14 @@
+{% extends "sketchboard/base.html" %}
+
+
+{% block content %}
+    <p>Register for SketchBoard</p>
+
+    <form method="post" action="{% url 'register' %}">
+        <table>
+            {{form}}
+        </table>
+        {% csrf_token %}
+        <input type="submit" value="Register" />
+    </form>
+{% endblock %}

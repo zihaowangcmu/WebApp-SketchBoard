@@ -1,0 +1,36 @@
+{% extends "sketchboard/base.html" %}
+
+{% block user-info %}
+    {{user.first_name}} {{user.last_name}} 
+    <!-- username={{user.username}} -->
+
+    <form action="{% url 'logout' %}" method="get">
+        <input type="submit" value="Logout" class="btn__logout my-lg-2">
+    </form>
+{% endblock %}
+
+{% block menu %}
+	<div class="d-flex justify-content-center my-3 menu-list">
+		<div class="p-2 mx-3 all-canvas"><a href="{% url 'all_canvases' %}">all</a></div>
+		<div class="p-2 mx-3 favorite-canvas" style="color: #55efc4;"><a href="{% url 'favorite' %}">favorite</a></div>
+		<!-- <div class="p-2 all-canvas" onclick="get_canvas_list()">all</div> -->
+		<!-- <div class="p-2 favorite-canvas" onclick="get_favorites_list()">favorite</div> -->
+	</div>
+{% endblock %}
+
+{% block favorite-list %}
+	<!-- the elements in this class are written by javascript, update_canvas_list(data) -->
+	<ul class="row" id="favorite-canvas-list">
+	</ul>
+	<script>
+      window.onload = get_favorites_list;
+    </script>
+{% endblock %}
+
+{% block ui %}
+
+	<div id="btn-create" onclick="modalOpen()">	
+	</div>
+	
+{% endblock %}
+

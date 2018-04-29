@@ -1,0 +1,47 @@
+{% extends "sketchboard/base.html" %}
+
+{% block content %}
+	<ul class="myProfile_list">
+		{% for item in items %}
+	        {% if item.picture %}
+	            <img src="{% url 'get_photo' item.id %}" alt="user picture fail to display" width="200px">
+	            <br>
+	        {% endif %}
+		{% endfor %}
+		<ul>
+			<form enctype="multipart/form-data" action="{% url 'add_photo' %}" method="post" class="add-form">
+				<table>
+				    {% for field in form.visible_fields %}
+				        <tr>
+				            <td>{{field.label_tag}}</td>
+				            <td>{{field}}</td>
+				            <td class="error">
+				                {% for error in field.errors %} {{error}} {% endfor %}
+				            </td>
+				        </tr>
+				    {% endfor %}
+				    <tr><td colspan="3"><input type="submit" value="Submit"></td></tr>
+				</table>
+			    {% csrf_token %}
+			</form>
+		</ul>
+		<ul>First Name: {{user.first_name}}</ul>
+		<ul>Last Name : {{user.last_name}} </ul>
+		<ul>User Name : {{user.username}}  </ul>
+		<ul>Bio       : {{user.profile_user.bio}}</ul>
+<!-- 		<ul>
+			<form method="post" action="{% url 'edit_bio' %}" class='edit_bio'>
+				<label>Edit Your Bio:</label>
+				<input type="text" name="bio">
+				<input type="submit" value="UPDATE">
+				{% csrf_token %}
+			</form>
+		</ul> -->
+	</ul>
+
+
+<!--     <form action="{% url 'logout' %}" method="get">
+        <input type="submit" value="Logout">
+    </form> -->
+{% endblock %}
+

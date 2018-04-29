@@ -1,0 +1,182 @@
+{% extends "sketchboard/base.html" %}
+{% block nav-btn %}
+  <!-- <a class="nav-link" href="{% url 'my_profile' %}" lang="en" >
+        <form action="{% url 'logout' %}" method="get">
+                  <input type="submit" value="Logout" class="btn__nav">
+        </form>
+  </a> -->
+{% endblock %}
+
+{% block board %}
+<style>
+.editor {
+    position: absolute;
+}</style>
+          <div class="tool-box">
+            <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="defaultSelect" class="tools selectTool" value="1" data-active="false" checked="checked">
+                <label for="defaultSelect" class="selectToolLabel">
+                  <div class="toolBoxWrapper" id="selectWrapper">
+                    <div class="toolBoxIcon" onclick="defaultSelect()">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="scribble" class="tools scribbleTool" value="2" data-active="true">
+                <label for="scribble" class="scribbleToolLabel">
+                  <div class="toolBoxWrapper" id="scribbleWrapper">
+                    <div class="toolBoxIcon" onclick="scribble()">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="textbox" class="tools textboxTool" value="3" data-active="false">
+                <label for="textbox" class="textboxToolLabel">
+                  <div class="toolBoxWrapper" id="textboxWrapper">
+                    <div class="toolBoxIcon" id="addbox" >
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="postit" class="tools postitTool" value="4" data-active="false">
+                <label for="postit" class="postitToolLabel">
+                  <div class="toolBoxWrapper" id="postitWrapper">
+                    <div class="toolBoxIcon" id="addnote">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+<!--             <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="imgUpload" class="tools imgUploadTool" value="4" data-active="false">
+                <label for="imgUpload" class="imgUploadToolLabel">
+                  <div class="toolBoxWrapper" id="imgWrapper">
+                    <div class="toolBoxIcon" id= "addimg">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div> -->
+
+            <!-- <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="videoUpload" class="tools videoUploadTool" value="4" data-active="false">
+                <label for="videoUpload" class="videoUploadToolLabel">
+                  <div class="toolBoxWrapper" id="videoUploadWrapper">
+                    <div class="toolBoxIcon" onclick="videoUpload()">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="fileUpload" class="tools fileUploadTool" value="4" data-active="false">
+                <label for="fileUpload" class="fileUploadToolLabel">
+                  <div class="toolBoxWrapper" id="fileUploadWrapper">
+                    <div class="toolBoxIcon" onclick="fileUpload()">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div> -->
+
+            <!-- <div class="each-tool">
+              <div class="each-tool-inner">
+                <input type="radio" id="share" class="tools postitTool" value="5" data-active="false">
+                <label for="postit" class="postitToolLabel">
+                  <div class="toolBoxWrapper" id="postitWrapper">
+                    <div class="toolBoxIcon" onclick="modalOpenShare()">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>  -->
+        </div>
+
+        <div class="palette">
+              <div class="d-flex flex-row">
+                <div class="each-color p-2" id="mint" data-red="0" data-green="184" data-blue="148"  data-active="0"></div>
+                <div class="each-color p-2" id="skyblue" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="each-color p-2" id="blue" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="each-color p-2" id="purple" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="each-color p-2" id="yellow" data-red="0" data-green="184" data-blue="148"  data-active="0"></div>
+                <div class="each-color p-2" id="orange" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="each-color p-2" id="pink" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="each-color p-2" id="gray" data-red="100" data-green="0" data-blue="0"  data-active="0"></div>
+                <div class="slidecontainer p-2">
+                  <input type="range" min="2" max="50" value="10" class="slider" id="diamRange">
+                </div>
+                <div class="palette-btn p-2" id="eraser" onclick="erase()"></div>
+                <div class="palette-btn p-2" id="clear" onclick="clear_canvas()">Clear All</div>
+              </div>
+          </div>
+        
+          <div class="bg-palette">
+                <div class="d-flex flex-row">
+                  <div class="each-color p-2" id="mint"     data-active="0"></div>
+                  <div class="each-color p-2" id="skyblue"  data-active="0"></div>
+                  <div class="each-color p-2" id="blue"     data-active="0"></div>
+                  <div class="each-color p-2" id="purple"   data-active="0"></div>
+                  <div class="each-color p-2" id="yellow"   data-active="0"></div>
+                  <div class="each-color p-2" id="orange"   data-active="0"></div>
+                  <div class="each-color p-2" id="pink"     data-active="0"></div>
+                  <div class="each-color p-2" id="gray"     data-active="0"></div>
+                  <div class="palette-btn p-2" id="clear">  Pick a color.</div>
+                </div>
+            </div>
+          
+
+
+          <div class="main-board" id="mainboard">
+            <div class="each-board" >    
+              <div id="froala-editor" style="border: 0px solid white">  </div>
+              <div id="postit-editor" style="border: 0px solid white">  </div>
+            </div>
+          </div>
+    
+          <div class="side-view">
+              <div class="icons">
+                <div class="side-icon" onclick="save()"> icon </div>
+                <div class="side-icon" onclick="modalOpenShare()"> icon </div>
+              </div>
+              <div class="coworkerList" id="coworkerList">
+              </div>
+              <!-- <div class="previews" > 
+                <div class="side-slide" > slide1 </div>
+              </div> -->
+             <!--  <div id="create-icon" onclick="createNew()">icon</div> -->
+          </div>
+    
+
+
+    <!-- <button onclick="save_scribble()">save the canvas</button> -->
+
+    {% load staticfiles %}
+      {% if id %}
+      <!-- Get id of canvas here -->
+      <script type="text/javascript">var canvas_id = {{id}}</script>
+      {% endif %}
+    <!-- Zihao: sketch.js; pusher.js. -->
+    <!-- Yichen: textbox.js; pusher.js. -->
+    <script>
+      window.onload = get_coworkers_list_home(canvas_id);
+    </script>
+    <script src="{% static 'sketchboard/sketch.js' %}" type="text/javascript"></script>
+    <script src="{% static 'sketchboard/pusher.js' %}" type="text/javascript"></script>
+
+{% endblock %}
