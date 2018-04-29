@@ -98,16 +98,13 @@ To deploy this on cloud, you can choose Amozon EC2, which is used by our team, o
 
 ## Authors
 
-* **Zihao Wang** - *Scribble functions* - [PurpleBooth](https://github.com/zihaowangcmu)
+* **Seonwoo Park** - *Social network system; UI & UX design* - [Sunny Park](https://github.com/sunny-sunwoo)
 
+* **Yichen Zheng** - *Textbox functions; sticky notes functions; inviting co-workers functions; profile management* - [yichencoding](https://github.com/yichencoding)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Zihao Wang** - *Scribble functions; real-time collaboration implement; security issues; canvas management functions; inviting co-workers functions; cloud deployment* - [Hot Pot Bubble](https://github.com/zihaowangcmu)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* This is project for CMU 17-637. Thank you Jeff! And I am su lucky to have you two as best teammates and friends!
 
