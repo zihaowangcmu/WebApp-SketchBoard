@@ -98,7 +98,7 @@ To deploy this on cloud, you can choose Amozon EC2, which is used by our team, o
 
 ## Authors
 
-* **Seonwoo Park** - *Social network system; UI & UX design* - [Sunny Park](https://github.com/sunny-sunwoo)
+* **Seonwoo Park** - *User register/login/logout; canvas settings and functions design; UI & UX design* - [Sunny Park](https://github.com/sunny-sunwoo)
 
 * **Yichen Zheng** - *Textbox functions; sticky notes functions; inviting co-workers functions; profile management* - [yichencoding](https://github.com/yichencoding)
 
