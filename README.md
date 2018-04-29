@@ -5,6 +5,8 @@ SketchBoard is the project for team20, 2018 spring, CMU course 17-637 WebApp dev
 This is a real-time collaboration tool. It's like google slides, which makes you work with teammates
 together, but allows you to do scribbles too!
 
+Here is the demo link: https://www.youtube.com/watch?v=SzGw7D1oqPc
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
